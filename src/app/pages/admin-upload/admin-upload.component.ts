@@ -43,7 +43,7 @@ export class AdminUploadComponent {
 
     this.http
       .post<Report>(
-        'https://bp6fqe0ma0.execute-api.us-east-1.amazonaws.com/xli/api/reports/',
+        'https://xli-backend.onrender.com/api/reports/',
         formData,
       )
       .subscribe({
@@ -66,3 +66,4 @@ export class AdminUploadComponent {
       });
   }
 }
+
