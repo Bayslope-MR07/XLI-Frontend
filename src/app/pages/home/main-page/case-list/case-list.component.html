@@ -1,0 +1,603 @@
+<a (click)="goBack()" class="back-button">
+  <mat-icon>arrow_back</mat-icon> Back to Case
+</a>
+
+<div class="caseList-wrapper" *ngIf="!loader; else loading">
+  <h4 style="text-align: center;">
+    {{ case?.case?.case_no }} | {{ case?.case?.case_name }}
+  </h4>
+
+  <!-- Case Details -->
+  <div class="details">
+    <h5>Case Details</h5>
+    <div class="flex-container">
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Case Date</strong>
+          </div>
+          <div class="col-6">
+            <span *ngIf="case?.case?.complaint_date && isValidDate(case?.case?.complaint_date); else noDate">
+              {{ case?.case?.complaint_date | date : "mediumDate" }}
+            </span>
+            <ng-template #noDate>N/A</ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Case No.</strong>
+          </div>
+          <div class="col-6">
+            <span class="text-primary">{{ case?.case?.case_no }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Case Name</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case?.case_name }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Litigation Venues</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case?.litigation_venues || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Plaintiff</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_details?.plaintiff }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Defendant</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_details?.defendant }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Case Status</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case?.case_status }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Cause of Action</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_details?.cause_of_action }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Related Case</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_details?.related_cases }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Court Name</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case?.court_name }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Judge</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_details?.judge }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Assigned Judge</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_details?.judge || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Type of Patent</strong>
+          </div>
+          <div class="col-6">
+            <!-- <span>{{ case?.patents.length!==0?case?.patents[0].patent_type:"Not Available" || "Not Available" }}</span> -->
+            <span>{{ case?.patents?.length ? case.patents[0]?.patent_type || 'Not Available' : 'Not Available' }}</span>
+
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Plaintiff Type and Size</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_details?.plaintiff_type || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Defendant Type and Size</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_details?.defendant_type || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Accused Product</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_details?.accused_product }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Winning Party</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_detials?.winning_party || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Type of Infringement</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_detials?.type_of_infringement || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Case Strength Level</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_detials?.case_strength_level || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Number of Infringed Claims</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_detials?.number_of_infringed_claims || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Number of Plaintiffs</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_detials?.plaintiff_count || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Number Of Defendants</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_detials?.defendant_count || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Third-Party Funding</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_detials?.third_party_funding_involved || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Single Patent or Family</strong>
+          </div>
+          <div class="col-6">
+            <!-- <span>{{ case?.patents ? case?.patents[0].single_or_multiple:"Not Available" }}</span> -->
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Case Close Date</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_detials?.case_closed_date }}</span>
+            <ng-template #noDate>N/A</ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Stage</strong>
+          </div>
+          <div class="col-6">
+            <span>{{ case?.case_detials?.stage }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details">
+    <h5>Tech Details</h5>
+    <div class="flex-container">
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Industry</strong>
+          </div>
+          <div class="col-6">
+            <!-- <span>{{ case?.patents?.length !== 0 ? case?.patents[0].industry : "Not Available" || "Not Available" }}</span> -->
+            <span>{{ case?.patents?.length ? case.patents[0]?.industry || 'Not Available' : 'Not Available' }}</span>
+
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Technology Category</strong>
+          </div>
+          <div class="col-6">
+            <!-- <span>{{ case?.patents?.length !== 0 ? case?.patents[0].technology_keywords : "Not Available" || "Not Available" }}</span> -->
+            <span>{{ case?.patents?.length ? case.patents[0]?.technology_keywords || 'Not Available' : 'Not Available' }}</span>
+
+          </div>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row flex g-1 align-items-start justify-content-between w-100">
+          <div class="col-6">
+            <strong>Tech Keywords</strong>
+          </div>
+          <div class="col-6">
+            <span>
+              {{
+                case?.patents?.length && case.patents[0]?.technology_keywords
+                  ? case.patents[0].technology_keywords
+                  : 'Not Available'
+              }}
+            </span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details">
+    <h5>Defendant Details</h5>
+    <ng-container *ngIf="case?.defendants.length > 0; else noDefendant">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Attorney</th>
+            <th>Contact</th>
+            <th>E-mail</th>
+            <th>Firm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let defendantKey of case?.defendants">
+            <td>{{ defendantKey.defendant_attorney_name || "Not Available" }}</td>
+            <td>{{ defendantKey.defendant_phone || "Not Available" }}</td>
+            <td>{{ defendantKey.defendant_email || "Not Available" }}</td>
+            <td>{{ defendantKey.defendant_law_firm || "Not Available" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <ng-template #noDefendant>
+      <p>No Defendant Details Available</p>
+    </ng-template>
+  </div>
+
+  <div class="details">
+    <h5>Plaintiff Details</h5>
+    <ng-container *ngIf="case?.plaintiffs.length > 0; else noPlaintiff">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Attorney</th>
+            <th>Contact</th>
+            <th>E-mail</th>
+            <th>Firm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plaintiffKey of case?.plaintiffs">
+            <td>{{ plaintiffKey.plaintiff_attorney_name || "Not Available" }}</td>
+            <td>{{ plaintiffKey.plaintiff_contact || "Not Available" }}</td>
+            <td>{{ plaintiffKey.plaintiff_email || "Not Available" }}</td>
+            <td>{{ plaintiffKey.plaintiff_law_firm || "Not Available" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <ng-template #noPlaintiff>
+      <p>No Plaintiff Details Available</p>
+    </ng-template>
+  </div>
+
+    <div class="details">
+    <h5>AI Based Judge Behaviour</h5>
+    <!-- <ng-container *ngIf="case?.plaintiffs.length > 0; else noPlaintiff">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Attorney</th>
+            <th>Contact</th>
+            <th>E-mail</th>
+            <th>Firm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plaintiffKey of case?.plaintiffs">
+            <td>{{ plaintiffKey.plaintiff_attorney_name || "Not Available" }}</td>
+            <td>{{ plaintiffKey.plaintiff_contact || "Not Available" }}</td>
+            <td>{{ plaintiffKey.plaintiff_email || "Not Available" }}</td>
+            <td>{{ plaintiffKey.plaintiff_law_firm || "Not Available" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container> -->
+    <!-- <ng-template #noPlaintiff>
+      <p>No Plaintiff Details Available</p>
+    </ng-template> -->
+  </div>
+
+  
+
+      <div class="details">
+    <h5>AI Based PLaintiff Insights</h5>
+    <!-- <ng-container *ngIf="case?.plaintiffs.length > 0; else noPlaintiff">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Attorney</th>
+            <th>Contact</th>
+            <th>E-mail</th>
+            <th>Firm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plaintiffKey of case?.plaintiffs">
+            <td>{{ plaintiffKey.plaintiff_attorney_name || "Not Available" }}</td>
+            <td>{{ plaintiffKey.plaintiff_contact || "Not Available" }}</td>
+            <td>{{ plaintiffKey.plaintiff_email || "Not Available" }}</td>
+            <td>{{ plaintiffKey.plaintiff_law_firm || "Not Available" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container> -->
+    <!-- <ng-template #noPlaintiff>
+      <p>No Plaintiff Details Available</p>
+    </ng-template> -->
+  </div>
+
+  <div class="details">
+    <div class="flex-container">
+      <div class="flex-item">
+        <strong>Standard Essential Patent</strong>
+        <span>{{ case?.patents.length !== 0 ? case?.patents.standard_patent : "Not Available" }}</span>
+      </div>
+      <div class="flex-item">
+        <strong>Semiconductor Patent</strong>
+        <span>{{ case?.patents.length !== 0 ? case?.patents.semiconductor_patent : "Not Available" }}</span>
+      </div>
+      <div class="flex-item">
+        <strong>Art Unit</strong>
+        <span>{{ case?.patents.length !== 0 ? case?.patents.art_unit : "Not Available" }}</span>
+      </div>
+      <div class="flex-item">
+        <strong>Reason for Allowance</strong>
+        <span>{{ case?.patents.length !== 0 ? case?.patents.reason_of_allowance : "Not Available" }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Patent Details -->
+  <div class="details">
+    <h5>Patent Details</h5>
+    <ng-container *ngIf="case?.patents?.length > 0; else noPatent">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Patent No.</th>
+            <th>Patent Type</th>
+            <th>Patent Title</th>
+            <th>Patent Issue Date</th>
+            <th>Patent Expiry Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let patent of case?.patents">
+            <td>{{ patent.patent_no || "NA" }}</td>
+            <td>{{ patent.patent_type || "NA" }}</td>
+            <td>{{ patent.patent_title || "NA" }}</td>
+            <td>
+              <span>{{ patent.issue_date | date : "mediumDate" }}</span>
+            </td>
+            <td>
+              <span>{{ patent.expiry_date | date : "mediumDate" }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <ng-template #noPatent>
+      <p>No Patent Details Available</p>
+    </ng-template>
+    <ng-template #noDate>
+      <span>N/A</span>
+    </ng-template>
+  </div>
+
+  <div class="details">
+    <h5>Activity Timeline</h5>
+    <div class="row d-flex justify-content-center w-100">
+      <div class="col-12 d-flex align-items-center" style="margin-left: 1px;">
+        <ng-container *ngIf="activity_timeline.length > 0; else noData">
+          <app-timeline [data]="activity_timeline"></app-timeline>
+        </ng-container>
+        <ng-template #noData>
+          <p>No data available!</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="details">
+    <h5>Assignee Timeline</h5>
+    <div *ngFor="let element of case?.patents">
+      <div class="row d-flex justify-content-center gap-2">
+        <div class="col-2 d-flex align-items-center">
+          <strong>{{ element.patent_no }}</strong>
+        </div>
+        <div class="col-9 d-flex align-items-center">
+          <ng-container *ngIf="element.assignee_timeline.assignments?.length > 0; else noData">
+            <app-timeline [data]="element.assignee_timeline.assignments"></app-timeline>
+          </ng-container>
+          <ng-template #noData>
+            <p>No data available!</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legal Entities -->
+  <div class="details">
+    <h5>Legal Entities</h5>
+    <div class="flex-container">
+      <div class="flex-item">
+        <strong>Plaintiff Law Firm</strong>
+        <span>{{ caseData?.legalEntities?.plaintiffsLawFirmName || "NA" }}</span>
+      </div>
+      <div class="flex-item">
+        <strong>Defendant Law Firm</strong>
+        <span>{{ caseData?.legalEntities?.defendantLawFirmName || "NA" }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row flex g-1 align-items-start justify-content-between w-100">
+    <div class="col-5 align-items-center">
+      <!-- Additional Details -->
+      <div class="details">
+        <h5>Additional Details</h5>
+        <div class="flex-container">
+          <div class="flex-item">
+            <strong>Activity Timeline</strong>
+            <span>{{ caseData?.activityTimeline || "NA" }}</span>
+          </div>
+          <div class="flex-item">
+            <strong>Winning Party</strong>
+            <span>{{ caseData?.caseOutcome?.winningParty || "NA" }}</span>
+          </div>
+          <div class="flex-item">
+            <strong>Winning Amount</strong>
+            <span>{{ caseData?.caseOutcome?.winningAmount || "NA" }}</span>
+          </div>
+          <div class="flex-item">
+            <strong>Recent Action</strong>
+            <span>{{ caseData?.caseOutcome?.recentAction || "Not Available" }}</span>
+          </div>
+          <div class="flex-item">
+            <strong>Other Possible Infringer</strong>
+            <span>{{ caseData?.caseOutcome?.otherPossibleInfringer || "Not Available" }}</span>
+          </div>
+          <div class="flex-item">
+            <strong>List of Prior Art</strong>
+            <span>{{ caseData?.caseOutcome?.listOfPriorArt || "Not Available" }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-5 align-items-center">
+      <!-- report section -->
+      <div class="report-section">
+        <h5 class="text-dark">Quick Prior Research Report</h5>
+        <div class="report-container">
+          <img [src]="reportImageUrl" alt="Report Preview" class="report-preview" />
+          <div class="overlay"></div>
+          <button mat-raised-button color="primary" class="overlay-button bg-primary w-100 text-white p-1" (click)="accessReport(caseData.docId)">
+            <h4 class="text-white p-1 mt-3">Pay to Access Report</h4>
+          </button>
+        </div>
+        <p style="display: flex; flex-direction: row; align-items: center; justify-content: center;" *ngIf="errorMessage" class="error">
+          {{ errorMessage }}
+          <mat-icon (click)="errorMessage = ''">close</mat-icon>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; padding: 20px; height: 150vh;">
+    <div><mat-spinner></mat-spinner></div>
+    <div><p>Loading Details...</p></div>
+  </div>
+</ng-template>

@@ -1,0 +1,2952 @@
+// // :root {
+// //   --primary-color: #A100FF; /* Accenture's purple for primary elements */
+// //   --accent-color: #E6CCFF; /* A softer purple for secondary elements/backgrounds */
+// //   --text-color: #000000; /* Black for text */
+// //   --background: #121212; /* Light mode background (same as before) */
+// //   --content-bg: #FFFFFF; /* Light mode content background */
+// // }
+// // .dark-mode {
+// //   background-color: #1e1e1e;
+// //   color: #ffffff;
+// // }
+
+// // /* Optional transition for smooth effect */
+// // body {
+// //   transition: background-color 0.3s ease, color 0.3s ease;
+// // }
+
+
+// // body.dark-mode {
+// //   background-color: #2d3436;
+// //   color: #dfe6e9;
+// // }
+// // :root {
+// //   --background: #FFFFFF; /* Light mode */
+// //   --content-bg: #FFFFFF;
+// //   --text-color: #000000;
+// // }
+
+// // body.dark-mode {
+// //   --background: #000000; /* Dark mode */
+// //   --content-bg: #1A1A1A;
+// //   --text-color: #FFFFFF;
+// // }
+
+// // body, html {
+// //   background: var(--background);
+// // }
+
+// // mat-sidenav-content {
+// //   background-color: var(--content-bg);
+// // }
+
+// // body.light-mode {
+// //   background-color: #dfe6e9;
+// //   color: #2d3436;
+// // }
+// // /* General layout for the drawer container */
+// // .drawer-container {
+// //   margin: 0;
+// //   padding: 0;
+// //   height: auto;
+// //   width: 100%;
+// // }
+
+// // /* Ensure mat-sidenav layout */
+// // mat-sidenav {
+// //   width: 23%;
+// //   height: 100vh;
+// //   background-color: var(--content-bg);
+// // }
+
+// // /* Center the inner container while keeping width: 80% */
+// // :host ::ng-deep .mat-drawer-inner-container {
+// //   width: 96%;
+// // }
+
+// // /* Ensure mat-expansion-panel and its children take the correct width */
+// // mat-expansion-panel {
+// //   width: 100%;
+// //   box-sizing: border-box;
+// //   background-color: white;
+// // }
+
+// // mat-expansion-panel section,
+// // mat-expansion-panel mat-form-field {
+// //   width: 100%;
+// //   box-sizing: border-box;
+// // }
+
+// // /* Style for scrollable radio group (used in Case Status, etc.) */
+// // .scrollable-radio-group {
+// //   max-height: 200px;
+// //   width: 100%;
+// //   overflow-y: auto;
+// //   overflow-x: auto;
+// //   scrollbar-width: none; /* Hide scrollbar for Firefox */
+// // }
+
+// // .scrollable-radio-group::-webkit-scrollbar {
+// //   display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+// // }
+
+// // /* Year filter buttons styling */
+// // .year-filter-buttons {
+// //   margin: 0;
+// // }
+
+// // .year-filter-buttons button {
+// //   padding: 10px 20px;
+// //   background-color: #E6CCFF; /* Softer purple for inactive buttons */
+// //   border: 1px solid #A100FF; /* Purple border */
+// //   cursor: pointer;
+// //   border-radius: 4px;
+// //   font-weight: 500;
+// //   color: #000000; /* Black text */
+// // }
+
+// // .year-filter-buttons button.active {
+// //   background-color: #A100FF; /* Purple for active buttons */
+// //   color: white; /* White text for contrast */
+// //   border-color: #A100FF;
+// // }
+
+// // /* Sticky filter row (year filter buttons) */
+// // .sticky-filter-row {
+// //   position: sticky;
+// //   top: 70px; /* Adjust based on the height of the Quick Search bar */
+// //   z-index: 999; /* Below Quick Search but above table headers */
+// //   background: white;
+// //   padding: 8px 0;
+// // }
+
+// // /* Ensure mat-sidenav-content can handle scrolling */
+// // mat-sidenav-content {
+// //   height: auto;
+// //   background-color:  var(--content-bg);
+// //   margin: 0;
+// //   padding: 0;
+// //   overflow-y: auto; /* Allow scrolling if content overflows */
+// // }
+
+// // /* Ensure the table has a block display for scrolling */
+// // mat-table {
+// //   display: block;
+// //   height: 500px;
+// //   overflow-y: auto;
+// //   overflow-x: auto;
+// //   margin: 0;
+// //   padding: 0 10px;
+// //   width: 100%;
+// //   scrollbar-width: none; /* Hide scrollbar for Firefox */
+// // }
+
+// // mat-table::-webkit-scrollbar {
+// //   display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+// // }
+
+// // /* Ensure the header row is sticky */
+// // mat-header-row {
+// //   position: sticky;
+// //   top: 0; /* Stick to the top of the table */
+// //   z-index: 10; /* Ensure headers stay above table body */
+// //   background-color: white;
+// // }
+
+// // /* Style the header cells */
+// // mat-header-cell {
+// //   font-weight: bolder;
+// //   position: sticky;
+// //   top: 0;
+// //   background-color: white;
+// //   z-index: 10;
+// //   padding: 8px 16px;
+// //   color: #000000; /* Black text */
+// // }
+
+// // /* Ensure table rows and cells behave correctly */
+// // mat-row {
+// //   display: table-row;
+// // }
+
+// // mat-cell {
+// //   display: table-cell;
+// //   font-weight: 500;
+// //   padding: 8px 16px;
+// //   color: #000000; /* Black text */
+// // }
+
+// // /* Hover effect for all rows */
+// // .mat-row:hover {
+// //   background-color: #F5E6FF; /* Very light purple on hover */
+// //   cursor: pointer;
+// //   transition: background-color 0.2s ease-in-out;
+// // }
+
+// // /* Specific style for Case Date column */
+// // .mat-column-caseComplaintDate {
+// //   font-weight: 500;
+// //   color: #000000; /* Black text */
+// // }
+
+// // /* No-wrap class for columns */
+// // .no-wrap {
+// //   white-space: nowrap;
+// //   overflow: hidden;
+// //   text-overflow: ellipsis;
+// //   width: 10%;
+// //   // font-weight: 800;
+// // }
+
+// // .wrap-text2 {
+// //   width: 100px; /* Adjusted fixed width */
+// //   white-space: normal; /* Allow text to wrap to the next line */
+// //   overflow-wrap: break-word; /* Wrap at word boundaries when possible */
+// //   line-height: 1.4; /* Improve spacing between wrapped lines */
+// //   padding: 8px 12px; /* Add padding for better readability */
+// //   box-sizing: border-box; /* Ensure padding doesn't affect the width */
+// // }
+
+// // /* Optional: Style for highlighted text (if caseNameHighlight applies styles) */
+// // .wrap-text2 ::ng-deep .highlighted {
+// //   background-color: #E6CCFF; /* Softer purple highlight */
+// //   font-weight: 500; /* Slightly bold but not too heavy */
+// //   color: #000000; /* Black text */
+// // }
+
+// // /* Ensure the table cell aligns properly */
+// // mat-cell.wrap-text2 {
+// //   display: table-cell;
+// //   vertical-align: top; /* Align text to the top of the cell */
+// // }
+
+// // /* Custom tab label styling */
+// // .custom-tab-label {
+// //   font-weight: bold;
+// //   cursor: pointer;
+// //   color: #A100FF; /* Purple for tab labels */
+// //   transition: color 0.3s, transform 0.2s;
+// // }
+
+// // .custom-tab-label:hover {
+// //   color: #7A00CC; /* Darker purple on hover */
+// //   transform: scale(1.05);
+// // }
+
+// // /* Additional styles for filter section */
+// // .filter-header {
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 10px;
+// //   padding: 10px;
+// // }
+
+// // .filter-options {
+// //   display: flex;
+// //   flex-wrap: wrap;
+// //   padding: 10px;
+// // }
+
+// // .loading-spinner {
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 5px;
+// //   padding: 10px;
+// //   font-size: 14px;
+// // }
+
+// // /* Ensure mat-option styling */
+// // mat-option {
+// //   border-bottom: 1px solid #000000; /* Black border */
+// // }
+
+// // table.mat-table {
+// //   width: 100%;
+// //   position: relative;
+// //   border-collapse: collapse;
+// //   overflow-x: auto; /* Enable horizontal scrolling */
+// //   display: block; /* Already present in your code */
+// //   height: 500px; /* Already present in your code */
+// //   overflow-y: auto; /* Already present in your code */
+// //   overflow-x: auto;
+// // }
+
+// // .table-scroll-container {
+// //   width: 100%;
+// //   display: block;
+// // }
+
+// // /* Add a minimum width to table so that it overflows horizontally */
+// // .full-width-table {
+// //   min-width: 1200px; /* You can adjust this */
+// //   width: max-content;
+// // }
+
+// // /* Optional: make scrollbar always visible on Windows/macOS */
+// // .table-scroll-container::-webkit-scrollbar {
+// //   height: 8px;
+// // }
+
+// // .table-scroll-container::-webkit-scrollbar-thumb {
+// //   background-color: #A100FF; /* Purple scrollbar */
+// //   border-radius: 10px;
+// // }
+
+// // .sticky-header {
+// //   position: sticky !important;
+// //   top: 0;
+// //   background-color: white;
+// //   z-index: 10;
+// //   font-weight: bolder;
+// //   padding: 8px;
+// // }
+
+// // .sticky-header-row {
+// //   position: sticky !important;
+// //   top: 0;
+// //   background-color: white;
+// //   z-index: 10;
+// // }
+
+// // th.mat-header-cell,
+// // td.mat-cell {
+// //   padding: 8px;
+// //   border-bottom: 1px solid #A100FF; /* Purple border */
+// // }
+
+// // th.mat-header-cell {
+// //   text-align: left;
+// //   color: #000000; /* Black text */
+// // }
+
+// // .sticky-filter-row {
+// //   position: sticky;
+// //   top: 60px; 
+// //   z-index: 900; 
+// //   background-color: white;
+// //   padding: 8px 0;
+// // }
+
+// // .no-results {
+// //   font-size: 16px;
+// //   color: #666;
+// //   text-align: center;
+// //   padding: 20px;
+// // }
+
+// // .no-data-message {
+// //   display: flex;
+// //   flex-direction: column;
+// //   align-items: center;
+// //   justify-content: center;
+// //   padding: 20px;
+// //   color: #666;
+// //   font-style: italic;
+// //   min-height: 200px;
+// // }
+
+// // .no-data-message mat-icon {
+// //   font-size: 48px;
+// //   color: #A100FF; /* Purple icon */
+// //   margin-bottom: 10px;
+// // }
+
+// // .mat-drawer-inner-container {
+// //   width: 100%;
+// //   height: 68%;
+// // }
+
+// // ::ng-deep .mat-drawer-side {
+// //   box-shadow: none;
+// //   border-right-style: none !important; 
+// //   border-right-color: var(--mat-sidenav-container-divider-color);
+// // }
+
+// // ::ng-deep [mat-align-tabs=center] > .mat-mdc-tab-header .mat-mdc-tab-labels {
+// //   justify-content: space-evenly;
+// //   margin-left: -58px;
+// // }
+
+// // ::ng-deep .mat-mdc-tab-labels {
+// //   margin-bottom: 13px;
+// // }
+
+// // :host ::ng-deep {
+// //   .plaintiff {
+// //     color: #A100FF !important; /* Purple for plaintiff */
+// //   }
+// //   .defendant {
+// //     color: brown !important; /* Black for defendant */
+// //   }
+// // }
+
+
+
+
+// // .carde {
+// //   transition: transform 0.3s ease;
+// //   line-height: 20px;
+// //   font-size: 14px;
+// //   font-weight: bolder;
+// //   color: black; /* Default color */
+// //   // box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+// // }
+
+// // .carde:hover {
+// //   // transform: scale(1.05); /* 5% bahar nikalta hai */
+// //   transform: translateY(-5px);
+// // }
+
+
+
+
+
+
+
+
+// // // ------------------------------
+
+
+// // :root {
+// //   --primary-color: #1976D2; /* Professional blue for primary elements */
+// //   --accent-color: #90CAF9; /* Lighter blue for secondary elements */
+// //   --text-color: #212121; /* Dark gray for text in light mode */
+// //   --background: linear-gradient(135deg, #F5F7FA, #E8ECEF); /* Subtle gray gradient for light mode */
+// //   --content-bg: linear-gradient(135deg, #F5F7FA, #E8ECEF); /* Same gradient for content background */
+// // }
+
+// // .dark-mode {
+// //   background: linear-gradient(135deg, #212529, #343A40); /* Dark gradient for dark mode */
+// //   color: #ffffff;
+// // }
+
+// // /* Optional transition for smooth effect */
+// // body {
+// //   transition: background-color 0.3s ease, color 0.3s ease;
+// // }
+
+// // body.dark-mode {
+// //   background: linear-gradient(135deg, #212529, #343A40); /* Dark gradient */
+// //   color: #E0E0E0; /* Light gray text for dark mode */
+// //   --background: linear-gradient(135deg, #212529, #343A40); /* Update variable for dark mode */
+// //   --content-bg: linear-gradient(135deg, #212529, #343A40); /* Update content background for dark mode */
+// //   --text-color: #E0E0E0; /* Light gray text in dark mode */
+// // }
+
+// // body, html {
+// //   background: var(--background);
+// // }
+
+// // mat-sidenav-content {
+// //   background: var(--content-bg);
+// // }
+
+// // body.light-mode {
+// //   background: linear-gradient(135deg, #F5F7FA, #E8ECEF); /* Light mode gradient */
+// //   color: #212121; /* Dark gray text */
+// // }
+
+// // /* General layout for the drawer container */
+// // .drawer-container {
+// //   margin: 0;
+// //   padding: 0;
+// //   height: auto;
+// //   width: 100%;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Sidenav styles */
+// // mat-sidenav {
+// //   width: 23%;
+// //   height: 100vh;
+// //   background: var(--content-bg); /* Same gradient background as the rest of the UI */
+// // }
+
+// // .mat-drawer-inner-container {
+// //   width: 100%;
+// //   height: 68%;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // ::ng-deep .mat-drawer-side {
+// //   box-shadow: none;
+// //   border-right-style: none !important; 
+// //   border-right-color: var(--mat-sidenav-container-divider-color);
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Ensure mat-expansion-panel and its children take the correct width */
+// // mat-expansion-panel {
+// //   width: 100%;
+// //   box-sizing: border-box;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // mat-expansion-panel section,
+// // mat-expansion-panel mat-form-field {
+// //   width: 100%;
+// //   box-sizing: border-box;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Style for scrollable radio group (used in Case Status, etc.) */
+// // .scrollable-radio-group {
+// //   max-height: 200px;
+// //   width: 100%;
+// //   overflow-y: auto;
+// //   overflow-x: auto;
+// //   scrollbar-width: none; /* Hide scrollbar for Firefox */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .scrollable-radio-group::-webkit-scrollbar {
+// //   display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+// // }
+
+// // /* Year filter buttons styling */
+// // .year-filter-buttons {
+// //   display: flex;
+// //   gap: 10px;
+// //   margin: 0;
+// // }
+
+// // .year-filter-buttons button {
+// //   padding: 12px 24px;
+// //   background-color: #e3f2fd; /* Inactive light blue */
+// //   border: 1px solid #1976d2;
+// //   color: #212121;
+// //   border-radius: 8px;
+// //   font-weight: 500;
+// //   font-size: 16px;
+// //   cursor: pointer;
+// //   transition: all 0.3s ease;
+// //   box-shadow: 0 2px 6px rgba(25, 118, 210, 0.15);
+// // }
+
+// // .year-filter-buttons button:hover {
+// //   background-color: #bbdefb; /* Slightly darker on hover */
+// //   transform: translateY(-2px);
+// //   box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+// // }
+
+// // .year-filter-buttons button:active {
+// //   background-color: #90caf9;
+// //   transform: scale(0.97);
+// //   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+// // }
+
+// // .year-filter-buttons button.active {
+// //   background-color: #1976d2;
+// //   color: white;
+// //   border-color: #1976d2;
+// //   box-shadow: 0 4px 10px rgba(25, 118, 210, 0.5);
+// // }
+
+
+// // /* Sticky filter row (year filter buttons) */
+// // .sticky-filter-row {
+// //   position: sticky;
+// //   top: 70px; /* Adjust based on the height of the Quick Search bar */
+// //   z-index: 999; /* Below Quick Search but above table headers */
+// //   background: var(--content-bg); /* Consistent background */
+// //   padding: 8px 0;
+// // }
+
+// // /* Ensure mat-sidenav-content can handle scrolling */
+// // mat-sidenav-content {
+// //   height: auto;
+// //   background: var(--content-bg); /* Consistent background */
+// //   margin: 0;
+// //   padding: 0;
+// //   overflow-y: auto; /* Allow scrolling if content overflows */
+// // }
+
+// // /* Ensure the table has a block display for scrolling */
+// // mat-table {
+// //   display: block;
+// //   height: 500px;
+// //   overflow-y: auto;
+// //   overflow-x: auto;
+// //   margin: 0;
+// //   padding: 0 10px;
+// //   width: 100%;
+// //   scrollbar-width: none; /* Hide scrollbar for Firefox */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // mat-table::-webkit-scrollbar {
+// //   display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+// // }
+
+// // /* Ensure the header row is sticky */
+// // mat-header-row {
+// //   position: sticky;
+// //   top: 0; /* Stick to the top of the table */
+// //   z-index: 10; /* Ensure headers stay above table body */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Style the header cells */
+// // mat-header-cell {
+// //   font-weight: bolder;
+// //   position: sticky;
+// //   top: 0;
+// //   background: var(--content-bg); /* Consistent background */
+// //   z-index: 10;
+// //   padding: 8px 16px;
+// //   color: var(--text-color); /* Consistent text color */
+// // }
+
+// // /* Ensure table rows and cells behave correctly */
+// // mat-row {
+// //   display: table-row;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // mat-cell {
+// //   display: table-cell;
+// //   font-weight: 500;
+// //   padding: 8px 16px;
+// //   color: var(--text-color); /* Consistent text color */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Alternating row colors for better readability */
+// // mat-row:nth-child(even) {
+// //   background: #E8ECEF; /* Slightly darker shade of the gradient for even rows */
+// // }
+
+// // body.dark-mode mat-row:nth-child(even) {
+// //   background: #343A40; /* Slightly lighter shade of the dark gradient */
+// // }
+
+// // /* Hover effect for all rows */
+// // .mat-row:hover {
+// //   background-color: #E3F2FD; /* Light blue on hover */
+// //   cursor: pointer;
+// //   transition: background-color 0.2s ease-in-out;
+// // }
+
+// // /* Specific style for Case Date column */
+// // .mat-column-caseComplaintDate {
+// //   font-weight: 500;
+// //   color: var(--text-color); /* Consistent text color */
+// // }
+
+// // /* No-wrap class for columns */
+// // .no-wrap {
+// //   white-space: nowrap;
+// //   overflow: hidden;
+// //   text-overflow: ellipsis;
+// //   width: 10%;
+// // }
+
+// // .wrap-text2 {
+// //   width: 100px; /* Adjusted fixed width */
+// //   white-space: normal; /* Allow text to wrap to the next line */
+// //   overflow-wrap: break-word; /* Wrap at word boundaries when possible */
+// //   line-height: 1.4; /* Improve spacing between wrapped lines */
+// //   padding: 8px 12px; /* Add padding for better readability */
+// //   box-sizing: border-box; /* Ensure padding doesn't affect the width */
+// // }
+
+// // /* Optional: Style for highlighted text (if caseNameHighlight applies styles) */
+// // .wrap-text2 ::ng-deep .highlighted {
+// //   background-color: #E3F2FD; /* Light blue highlight */
+// //   font-weight: 500; /* Slightly bold but not too heavy */
+// //   color: var(--text-color); /* Consistent text color */
+// // }
+
+// // /* Ensure the table cell aligns properly */
+// // mat-cell.wrap-text2 {
+// //   display: table-cell;
+// //   vertical-align: top; /* Align text to the top of the cell */
+// // }
+
+// // /* Custom tab label styling */
+// // .custom-tab-label {
+// //   font-weight: bold;
+// //   cursor: pointer;
+// //   color: #1976D2; /* Blue for tab labels */
+// //   transition: color 0.3s, transform 0.2s;
+// // }
+
+// // .custom-tab-label:hover {
+// //   color: #1565C0; /* Darker blue on hover */
+// //   transform: scale(1.05);
+// // }
+
+// // /* Additional styles for filter section */
+// // .filter-header {
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 10px;
+// //   padding: 10px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .filter-options {
+// //   display: flex;
+// //   flex-wrap: wrap;
+// //   padding: 10px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .loading-spinner {
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 5px;
+// //   padding: 10px;
+// //   font-size: 14px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Ensure mat-option styling */
+// // mat-option {
+// //   border-bottom: 1px solid var(--accent-color); /* Light blue border */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // table.mat-table {
+// //   width: 100%;
+// //   position: relative;
+// //   border-collapse: collapse;
+// //   overflow-x: auto; /* Enable horizontal scrolling */
+// //   display: block;
+// //   height: 500px;
+// //   overflow-y: auto;
+// //   overflow-x: auto;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .table-scroll-container {
+// //   width: 100%;
+// //   display: block;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Add a minimum width to table so that it overflows horizontally */
+// // .full-width-table {
+// //   min-width: 1200px; /* You can adjust this */
+// //   width: max-content;
+// // }
+
+// // /* Optional: make scrollbar always visible on Windows/macOS */
+// // .table-scroll-container::-webkit-scrollbar {
+// //   height: 8px;
+// // }
+
+// // .table-scroll-container::-webkit-scrollbar-thumb {
+// //   background-color: #1976D2; /* Blue scrollbar */
+// //   border-radius: 10px;
+// // }
+
+// // .sticky-header {
+// //   position: sticky !important;
+// //   top: 0;
+// //   background: var(--content-bg); /* Consistent background */
+// //   z-index: 10;
+// //   font-weight: bolder;
+// //   padding: 8px;
+// // }
+
+// // .sticky-header-row {
+// //   position: sticky !important;
+// //   top: 0;
+// //   background: var(--content-bg); /* Consistent background */
+// //   z-index: 10;
+// // }
+
+// // th.mat-header-cell,
+// // td.mat-cell {
+// //   padding: 8px;
+// //   border-bottom: 1px solid #90CAF9; /* Light blue border */
+// // }
+
+// // th.mat-header-cell {
+// //   text-align: left;
+// //   color: var(--text-color); /* Consistent text color */
+// // }
+
+// // .sticky-filter-row {
+// //   position: sticky;
+// //   top: 60px; 
+// //   z-index: 900; 
+// //   background: var(--content-bg); /* Consistent background */
+// //   padding: 8px 0;
+// // }
+
+// // .no-results {
+// //   font-size: 16px;
+// //   color: #666;
+// //   text-align: center;
+// //   padding: 20px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .no-data-message {
+// //   display: flex;
+// //   flex-direction: column;
+// //   align-items: center;
+// //   justify-content: center;
+// //   padding: 20px;
+// //   color: #666;
+// //   font-style: italic;
+// //   min-height: 200px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .no-data-message mat-icon {
+// //   font-size: 48px;
+// //   color: #1976D2; /* Blue icon */
+// //   margin-bottom: 10px;
+// // }
+
+// // ::ng-deep [mat-align-tabs=center] > .mat-mdc-tab-header .mat-mdc-tab-labels {
+// //   justify-content: space-evenly;
+// //   margin-left: -58px;
+// // }
+
+// // ::ng-deep .mat-mdc-tab-labels {
+// //   margin-bottom: 13px;
+// // }
+
+// // :host ::ng-deep {
+// //   .plaintiff {
+// //     color: #1976D2 !important; /* Blue for plaintiff */
+// //   }
+// //   .defendant {
+// //     color: #D32F2F !important; /* Red for defendant */
+// //   }
+// // }
+
+// // .carde {
+// //   transition: transform 0.3s ease;
+// //   line-height: 20px;
+// //   font-size: 14px;
+// //   font-weight: bolder;
+// //   color: black; /* Default color */
+// // }
+
+// // .carde:hover {
+// //   transform: translateY(-5px);
+// // }
+// // .active-title {
+// //   color: #1976D2 !important; /* Purple when panel is expanded */
+// // }
+
+
+
+// // ::ng-deep .mat-drawer-inner-container {
+// //   width: 100%;
+// //   height: 68%;
+// //   overflow: auto;
+// //   -webkit-overflow-scrolling: touch;
+// // }
+
+
+
+
+
+
+// // :root {
+// //   --primary-color: #1976D2; /* Professional blue for primary elements */
+// //   --accent-color: #90CAF9; /* Lighter blue for secondary elements */
+// //   --text-color: #212121; /* Dark gray for text in light mode */
+// //   --background: linear-gradient(135deg, #F5F7FA, #E8ECEF); /* Subtle gray gradient for light mode */
+// //   --content-bg: linear-gradient(135deg, #F5F7FA, #E8ECEF); /* Same gradient for content background */
+// // }
+
+// // .dark-mode {
+// //   background: linear-gradient(135deg, #212529, #343A40); /* Dark gradient for dark mode */
+// //   color: #ffffff;
+// // }
+
+// // /* Optional transition for smooth effect */
+// // body {
+// //   transition: background-color 0.3s ease, color 0.3s ease;
+// // }
+
+// // body.dark-mode {
+// //   background: linear-gradient(135deg, #212529, #343A40); /* Dark gradient */
+// //   color: #E0E0E0; /* Light gray text for dark mode */
+// //   --background: linear-gradient(135deg, #212529, #343A40); /* Update variable for dark mode */
+// //   --content-bg: linear-gradient(135deg, #212529, #343A40); /* Update content background for dark mode */
+// //   --text-color: #E0E0E0; /* Light gray text in dark mode */
+// // }
+
+// // body, html {
+// //   background: var(--background);
+// // }
+
+// // mat-sidenav-content {
+// //   background: var(--content-bg);
+// // }
+
+// // body.light-mode {
+// //   background: linear-gradient(135deg, #F5F7FA, #E8ECEF); /* Light mode gradient */
+// //   color: #212121; /* Dark gray text */
+// // }
+
+// // /* General layout for the drawer container */
+// // .drawer-container {
+// //   margin: 0;
+// //   padding: 0;
+// //   height: auto;
+// //   width: 100%;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Sidenav styles */
+// // mat-sidenav {
+// //   width: 23%;
+// //   height: 100vh;
+// //   background: var(--content-bg); /* Same gradient background as the rest of the UI */
+// // }
+
+// // .mat-drawer-inner-container {
+// //   width: 100%;
+// //   height: 69%; 
+// //   background: var(--content-bg); /* Consistent background */
+// //   overflow: auto;
+// //   -webkit-overflow-scrolling: touch;
+// // }
+// // /* Use this in global styles.scss or component .scss */
+
+// // ::ng-deep .mat-drawer-inner-container {
+// //   width: 100% !important;
+// //   height: 69% !important;
+// //   background: var(--content-bg); /* Optional: match your app theme */
+// //   overflow: auto;
+// //   -webkit-overflow-scrolling: touch;
+// // }
+
+
+
+// // ::ng-deep .mat-drawer-side {
+// //   box-shadow: none;
+// //   border-right-style: none !important;
+// //   border-right-color: var(--mat-sidenav-container-divider-color);
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Ensure mat-expansion-panel and its children take the correct width */
+// // mat-expansion-panel {
+// //   width: 100%;
+// //   box-sizing: border-box;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // mat-expansion-panel section,
+// // mat-expansion-panel mat-form-field {
+// //   width: 100%;
+// //   box-sizing: border-box;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Style for scrollable radio group (used in Case Status, etc.) */
+// // .scrollable-radio-group {
+// //   max-height: 200px;
+// //   width: 100%;
+// //   overflow-y: auto;
+// //   overflow-x: auto;
+// //   scrollbar-width: none; /* Hide scrollbar for Firefox */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .scrollable-radio-group::-webkit-scrollbar {
+// //   display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+// // }
+
+// // /* Year filter buttons styling */
+// // .year-filter-buttons {
+// //   display: flex;
+// //   gap: 10px;
+// //   margin: 0;
+// // }
+
+// // .year-filter-buttons button {
+// //   padding: 12px 24px;
+// //   background-color: #e3f2fd; /* Inactive light blue */
+// //   border: 1px solid #1976d2;
+// //   color: #212121;
+// //   border-radius: 8px;
+// //   font-weight: 500;
+// //   font-size: 16px;
+// //   cursor: pointer;
+// //   transition: all 0.3s ease;
+// //   box-shadow: 0 2px 6px rgba(25, 118, 210, 0.15);
+// // }
+
+// // .year-filter-buttons button:hover {
+// //   background-color: #bbdefb; /* Slightly darker on hover */
+// //   transform: translateY(-2px);
+// //   box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+// // }
+
+// // .year-filter-buttons button:active {
+// //   background-color: #90caf9;
+// //   transform: scale(0.97);
+// //   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+// // }
+
+// // .year-filter-buttons button.active {
+// //   background-color: #1976d2;
+// //   color: white;
+// //   border-color: #1976d2;
+// //   box-shadow: 0 4px 10px rgba(25, 118, 210, 0.5);
+// // }
+
+// // /* Sticky filter row (year filter buttons) */
+// // .sticky-filter-row {
+// //   position: sticky;
+// //   top: 70px; /* Adjust based on the height of the Quick Search bar */
+// //   z-index: 999; /* Below Quick Search but above table headers */
+// //   background: var(--content-bg); /* Consistent background */
+// //   padding: 8px 0;
+// // }
+
+// // /* Ensure mat-sidenav-content can handle scrolling */
+// // mat-sidenav-content {
+// //   height: auto;
+// //   background: var(--content-bg); /* Consistent background */
+// //   margin: 0;
+// //   padding: 0;
+// //   overflow-y: auto; /* Allow scrolling if content overflows */
+// // }
+
+// // /* Ensure the table has a block display for scrolling */
+// // mat-table {
+// //   display: block;
+// //   height: 500px;
+// //   overflow-y: auto;
+// //   overflow-x: auto;
+// //   margin: 0;
+// //   padding: 0 10px;
+// //   width: 100%;
+// //   scrollbar-width: none; /* Hide scrollbar for Firefox */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // mat-table::-webkit-scrollbar {
+// //   display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+// // }
+
+// // /* Ensure the header row is sticky */
+// // mat-header-row {
+// //   position: sticky;
+// //   top: 0; /* Stick to the top of the table */
+// //   z-index: 10; /* Ensure headers stay above table body */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Style the header cells */
+// // mat-header-cell {
+// //   font-weight: bolder;
+// //   position: sticky;
+// //   top: 0;
+// //   background: var(--content-bg); /* Consistent background */
+// //   z-index: 10;
+// //   padding: 8px 16px;
+// //   color: var(--text-color); /* Consistent text color */
+// // }
+
+// // /* Ensure table rows and cells behave correctly */
+// // mat-row {
+// //   display: table-row;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // mat-cell {
+// //   display: table-cell;
+// //   font-weight: 500;
+// //   padding: 8px 16px;
+// //   color: var(--text-color); /* Consistent text color */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Alternating row colors for better readability */
+// // mat-row:nth-child(even) {
+// //   background: #E8ECEF; /* Slightly darker shade of the gradient for even rows */
+// // }
+
+// // body.dark-mode mat-row:nth-child(even) {
+// //   background: #343A40; /* Slightly lighter shade of the dark gradient */
+// // }
+
+// // /* Hover effect for all rows */
+// // .mat-row:hover {
+// //   background-color: #E3F2FD; /* Light blue on hover */
+// //   cursor: pointer;
+// //   transition: background-color 0.2s ease-in-out;
+// // }
+
+// // /* Specific style for Case Date column */
+// // .mat-column-caseComplaintDate {
+// //   font-weight: 500;
+// //   color: var(--text-color); /* Consistent text color */
+// // }
+
+// // /* No-wrap class for columns */
+// // .no-wrap {
+// //   white-space: nowrap;
+// //   overflow: hidden;
+// //   text-overflow: ellipsis;
+// //   width: 10%;
+// // }
+
+// // .wrap-text2 {
+// //   width: 100px; /* Adjusted fixed width */
+// //   white-space: normal; /* Allow text to wrap to the next line */
+// //   overflow-wrap: break-word; /* Wrap at word boundaries when possible */
+// //   line-height: 1.4; /* Improve spacing between wrapped lines */
+// //   padding: 8px 12px; /* Add padding for better readability */
+// //   box-sizing: border-box; /* Ensure padding doesn't affect the width */
+// // }
+
+// // /* Optional: Style for highlighted text (if caseNameHighlight applies styles) */
+// // .wrap-text2 ::ng-deep .highlighted {
+// //   background-color: #E3F2FD; /* Light blue highlight */
+// //   font-weight: 500; /* Slightly bold but not too heavy */
+// //   color: var(--text-color); /* Consistent text color */
+// // }
+
+// // /* Ensure the table cell aligns properly */
+// // mat-cell.wrap-text2 {
+// //   display: table-cell;
+// //   vertical-align: top; /* Align text to the top of the cell */
+// // }
+
+// // /* Custom tab label styling */
+// // .custom-tab-label {
+// //   font-weight: bold;
+// //   cursor: pointer;
+// //   color: #1976D2; /* Blue for tab labels */
+// //   transition: color 0.3s, transform 0.2s;
+// // }
+
+// // .custom-tab-label:hover {
+// //   color: #1565C0; /* Darker blue on hover */
+// //   transform: scale(1.05);
+// // }
+
+// // /* Additional styles for filter section */
+// // .filter-header {
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 10px;
+// //   padding: 10px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .filter-options {
+// //   display: flex;
+// //   flex-wrap: wrap;
+// //   padding: 10px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .loading-spinner {
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 5px;
+// //   padding: 10px;
+// //   font-size: 14px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Ensure mat-option styling */
+// // mat-option {
+// //   border-bottom: 1px solid var(--accent-color); /* Light blue border */
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // table.mat-table {
+// //   width: 100%;
+// //   position: relative;
+// //   border-collapse: collapse;
+// //   overflow-x: auto; /* Enable horizontal scrolling */
+// //   display: block;
+// //   height: 500px;
+// //   overflow-y: auto;
+// //   overflow-x: auto;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .table-scroll-container {
+// //   width: 100%;
+// //   display: block;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // /* Add a minimum width to table so that it overflows horizontally */
+// // .full-width-table {
+// //   min-width: 1200px; /* You can adjust this */
+// //   width: max-content;
+// // }
+
+// // /* Optional: make scrollbar always visible on Windows/macOS */
+// // .table-scroll-container::-webkit-scrollbar {
+// //   height: 8px;
+// // }
+
+// // .table-scroll-container::-webkit-scrollbar-thumb {
+// //   background-color: #1976D2; /* Blue scrollbar */
+// //   border-radius: 10px;
+// // }
+
+// // .sticky-header {
+// //   position: sticky !important;
+// //   top: 0;
+// //   background: var(--content-bg); /* Consistent background */
+// //   z-index: 10;
+// //   font-weight: bolder;
+// //   padding: 8px;
+// // }
+// // .sticky-header, .mat-header-row {
+// //   background-color: white !important;
+// //   z-index: 2;
+// // }
+
+// // .sticky-header-row {
+// //   background-color: white !important;
+// //   z-index: 2;
+// //   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+// // }
+
+
+// // /* Optional: add subtle bottom border */
+// // .mat-header-row th {
+// //   border-bottom: 1px solid #ccc;
+// // }
+
+// // .sticky-header-row {
+// //   position: sticky !important;
+// //   top: 0;
+// //   background: var(--content-bg); /* Consistent background */
+// //   z-index: 10;
+// // }
+
+// // th.mat-header-cell,
+// // td.mat-cell {
+// //   padding: 8px;
+// //   border-bottom: 1px solid #90CAF9; /* Light blue border */
+// // }
+
+// // th.mat-header-cell {
+// //   text-align: left;
+// //   color: var(--text-color); /* Consistent text color */
+// // }
+
+// // .no-results {
+// //   font-size: 16px;
+// //   color: #666;
+// //   text-align: center;
+// //   padding: 20px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .no-data-message {
+// //   display: flex;
+// //   flex-direction: column;
+// //   align-items: center;
+// //   justify-content: center;
+// //   padding: 20px;
+// //   color: #666;
+// //   font-style: italic;
+// //   min-height: 200px;
+// //   background: var(--content-bg); /* Consistent background */
+// // }
+
+// // .no-data-message mat-icon {
+// //   font-size: 48px;
+// //   color: #1976D2; /* Blue icon */
+// //   margin-bottom: 10px;
+// // }
+
+// // ::ng-deep [mat-align-tabs=center] > .mat-mdc-tab-header .mat-mdc-tab-labels {
+// //   justify-content: space-evenly;
+// //   margin-left: -58px;
+// // }
+
+// // ::ng-deep .mat-mdc-tab-labels {
+// //   margin-bottom: 13px;
+// // }
+
+// // :host ::ng-deep {
+// //   .plaintiff {
+// //     color: #1976D2 !important; /* Blue for plaintiff */
+// //   }
+// //   .defendant {
+// //     color: #D32F2F !important; /* Red for defendant */
+// //   }
+// // }
+
+// // .carde {
+// //   transition: transform 0.3s ease;
+// //   line-height: 20px;
+// //   font-size: 14px;
+// //   font-weight: bolder;
+// //   color: black; /* Default color */
+// // }
+
+// // .carde:hover {
+// //   transform: translateY(-5px);
+// // }
+
+// // .active-title {
+// //   color: #1976D2 !important; /* Blue when panel is expanded */
+// // }
+
+
+// // /* Light gray and white alternate rows */
+// // .even-row {
+// //   background-color: lightgrey;  /* dark grey */
+// // }
+
+// // .odd-row {
+// //   background-color: white;  /* lightgrey */
+// // }
+
+// // /* Optional: Hover effect for rows */
+// // tr.mat-row:hover {
+// //   background-color: #e0e0e0;
+// //   transition: background-color 0.2s ease;
+// // }
+
+
+
+
+
+
+
+// :root {
+//   --primary-color: #1A3C6D; /* Deep navy blue for primary elements */
+//   --accent-color: #D4AF37; /* Gold for secondary elements and accents */
+//   --text-color: #333333; /* Dark gray for text in light mode */
+//   --background: linear-gradient(135deg, #F9FBFF, #FFFFFF); /* Subtle light blue to white gradient */
+//   --content-bg: linear-gradient(135deg, #F9FBFF, #FFFFFF); /* Same gradient for content */
+// }
+
+// .dark-mode {
+//   background: linear-gradient(135deg, #1A3C6D, #2A4B8A); /* Deep navy blue gradient for dark mode */
+//   color: #E0E0E0; /* Light gray text */
+// }
+
+// /* Smooth transition for theme changes */
+// body {
+//   transition: background-color 0.3s ease, color 0.3s ease;
+//   font-family: "Roboto", sans-serif; /* Clean, modern font */
+// }
+
+// body.dark-mode {
+//   background: linear-gradient(135deg, #1A3C6D, #2A4B8A); /* Deep navy blue gradient */
+//   color: #E0E0E0;
+//   --background: linear-gradient(135deg, #1A3C6D, #2A4B8A);
+//   --content-bg: linear-gradient(135deg, #1A3C6D, #2A4B8A);
+//   --text-color: #E0E0E0;
+// }
+
+// body, html {
+//   background: var(--background);
+// }
+
+// mat-sidenav-content {
+//   background: var(--content-bg);
+// }
+
+// body.light-mode {
+//   background: linear-gradient(135deg, #F9FBFF, #FFFFFF); /* Light mode gradient */
+//   color: #333333;
+// }
+
+// /* Drawer container styling */
+// .drawer-container {
+//   margin: 0;
+//   padding: 0;
+//   height: auto;
+//   width: 100%;
+//   background: var(--content-bg);
+// }
+
+// /* Sidenav styles with elegant shadow */
+// mat-sidenav {
+//   width: 23%;
+//   height: 94vh;
+//   background: var(--content-bg);
+//   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+// }
+
+// // .mat-drawer-inner-container {
+// //   width: 100%;
+// //   height: 69%;
+// //   background: var(--content-bg);
+// //   overflow: auto;
+// //   -webkit-overflow-scrolling: touch;
+// // }
+
+// ::ng-deep .mat-drawer-inner-container {
+//   width: 100% !important;
+//   height: 69% !important;
+//   background: var(--content-bg);
+//   overflow: auto;
+//   -webkit-overflow-scrolling: touch;
+// }
+
+// ::ng-deep .mat-drawer-side {
+//   box-shadow: none;
+//   border-right-style: none !important;
+//   border-right-color: var(--accent-color); /* Gold border */
+//   background: var(--content-bg);
+// }
+
+// /* Expansion panel styling */
+// mat-expansion-panel {
+//   width: 100%;
+//   box-sizing: border-box;
+//   background: var(--content-bg);
+//   border-radius: 8px;
+//   margin-bottom: 10px;
+//   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+//   transition: box-shadow 0.3s ease;
+
+//   &:hover {
+//     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+//   }
+// }
+
+// mat-expansion-panel section,
+// mat-expansion-panel mat-form-field {
+//   width: 100%;
+//   box-sizing: border-box;
+//   background: var(--content-bg);
+// }
+
+// /* Scrollable radio group styling */
+// .scrollable-radio-group {
+//   max-height: 200px;
+//   width: 100%;
+//   overflow-y: auto;
+//   overflow-x: auto;
+//   scrollbar-width: none;
+//   background: var(--content-bg);
+// }
+
+// .scrollable-radio-group::-webkit-scrollbar {
+//   display: none;
+// }
+
+// /* Year filter buttons with gold accents */
+// .year-filter-buttons {
+//   display: flex;
+//   gap: 10px;
+//   margin: 0;
+// }
+
+// .year-filter-buttons button {
+//   padding: 12px 24px;
+//   background-color: #E6F0FA; /* Light blue */
+//   border: 1px solid #D4AF37; /* Gold border */
+//   color: #1A3C6D; /* Deep navy blue text */
+//   border-radius: 8px;
+//   font-family: "Roboto", sans-serif;
+//   font-weight: 500;
+//   font-size: 16px;
+//   cursor: pointer;
+//   transition: all 0.3s ease;
+//   box-shadow: 0 2px 6px rgba(26, 60, 109, 0.15); /* Navy blue shadow */
+// }
+
+// .year-filter-buttons button:hover {
+//   background-color: #D9E8FF; /* Slightly darker blue */
+//   transform: translateY(-2px);
+//   box-shadow: 0 4px 12px rgba(26, 60, 109, 0.3);
+// }
+
+// .year-filter-buttons button:active {
+//   background-color: #D4AF37; /* Gold on click */
+//   transform: scale(0.97);
+//   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+// }
+
+// .year-filter-buttons button.active {
+//   background: linear-gradient(90deg, #D4AF37, #B8972E); /* Gold gradient */
+//   color: #FFFFFF;
+//   border-color: #D4AF37;
+//   box-shadow: 0 4px 10px rgba(212, 175, 55, 0.5);
+// }
+
+// /* Sticky filter row */
+// .sticky-filter-row {
+//   position: sticky;
+//   top: 70px;
+//   z-index: 999;
+//   background: var(--content-bg);
+//   padding: 8px 0;
+//   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+// }
+
+// /* Sidenav content */
+// mat-sidenav-content {
+//   height: auto;
+//   background: var(--content-bg);
+//   margin: 0;
+//   padding: 0;
+//   overflow-y: auto;
+// }
+
+// /* Table styling */
+// mat-table {
+//   display: block;
+//   height: 500px;
+//   overflow-y: auto;
+//   overflow-x: auto;
+//   margin: 0;
+//   padding: 0 10px;
+//   width: 100%;
+//   scrollbar-width: none;
+//   background: var(--content-bg);
+// }
+
+// mat-table::-webkit-scrollbar {
+//   display: none;
+// }
+
+// /* Sticky header row */
+// mat-header-row {
+//   position: sticky;
+//   top: 0;
+//   z-index: 10;
+//   background: var(--content-bg);
+// }
+
+// /* Header cells with navy blue text */
+// mat-header-cell {
+//   font-family: "Roboto", sans-serif;
+//   font-weight: 700;
+//   position: sticky;
+//   top: 0;
+//   background: var(--content-bg);
+//   z-index: 10;
+//   padding: 10px 16px;
+//   color: #1A3C6D; /* Deep navy blue */
+//   border-bottom: 2px solid #D4AF37; /* Gold border */
+// }
+
+// /* Table rows and cells */
+// mat-row {
+//   display: table-row;
+//   background: var(--content-bg);
+// }
+
+// mat-cell {
+//   display: table-cell;
+//   font-family: "Roboto", sans-serif;
+//   font-weight: 500;
+//   padding: 10px 16px;
+//   color: #333333;
+//   background: var(--content-bg);
+//   border-bottom: 1px solid #D4AF37; /* Gold border */
+// }
+
+// /* Alternating row colors */
+// mat-row:nth-child(even) {
+//   background: #E6F0FA; /* Light blue for even rows */
+// }
+
+// body.dark-mode mat-row:nth-child(even) {
+//   background: #2A4B8A; /* Slightly lighter navy for dark mode */
+// }
+
+// /* Hover effect for rows */
+// .mat-row:hover {
+//   background-color: #D9E8FF; /* Slightly darker blue on hover */
+//   cursor: pointer;
+//   transition: background-color 0.2s ease-in-out;
+// }
+
+// /* Case Date column */
+// .mat-column-caseComplaintDate {
+//   font-weight: 500;
+//   color: #333333;
+// }
+
+// /* No-wrap class for columns */
+// .no-wrap {
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   width: 10%;
+//   border-bottom: 2px solid #999;
+// }
+
+// .wrap-text2 {
+//   width: 100px;
+//   white-space: normal;
+//   overflow-wrap: break-word;
+//   line-height: 1.4;
+//   padding: 8px 12px;
+//   box-sizing: border-box;
+//   border-bottom: 2px solid #999;
+// }
+
+// .wrap-text2 ::ng-deep .highlighted {
+//   background-color: #D9E8FF; /* Slightly darker blue highlight */
+//   font-weight: 500;
+//   color: #333333;
+//   border-bottom: 2px solid #999;
+// }
+
+// mat-cell.wrap-text2 {
+//   display: table-cell;
+//   vertical-align: top;
+// }
+
+// /* Custom tab label styling */
+// .custom-tab-label {
+//   font-family: "Roboto", sans-serif; /* Elegant font */
+//   font-weight: 700;
+//   cursor: pointer;
+//   color: #1A3C6D; /* Deep navy blue */
+//   transition: color 0.3s, transform 0.2s;
+
+//   &:hover {
+//     color: #D4AF37; /* Gold on hover */
+//     transform: scale(1.05);
+//   }
+// }
+
+// /* Filter section styling */
+// .filter-header {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   padding: 10px;
+//   background: var(--content-bg);
+//   border-bottom: 1px solid #D4AF37; /* Gold border */
+// }
+
+// .filter-options {
+//   display: flex;
+//   flex-wrap: wrap;
+//   padding: 10px;
+//   background: var(--content-bg);
+// }
+
+// .loading-spinner {
+//   display: flex;
+//   align-items: center;
+//   gap: 5px;
+//   padding: 10px;
+//   font-size: 14px;
+//   color: #1A3C6D; /* Deep navy blue */
+//   background: var(--content-bg);
+// }
+
+// /* Mat-option styling */
+// mat-option {
+//   border-bottom: 1px solid #D4AF37; /* Gold border */
+//   background: var(--content-bg);
+// }
+
+// table.mat-table {
+//   width: 100%;
+//   position: relative;
+//   border-collapse: collapse;
+//   overflow-x: auto;
+//   display: block;
+//   height: 500px;
+//   overflow-y: auto;
+//   overflow-x: auto;
+//   background: var(--content-bg);
+// }
+
+// .table-scroll-container {
+//   width: 100%;
+//   display: block;
+//   background: var(--content-bg);
+// }
+
+// .full-width-table {
+//   min-width: 1200px;
+//   width: max-content;
+// }
+
+// .table-scroll-container::-webkit-scrollbar {
+//   height: 8px;
+// }
+
+// .table-scroll-container::-webkit-scrollbar-thumb {
+//   background-color: #D4AF37; /* Gold scrollbar */
+//   border-radius: 10px;
+// }
+
+// .sticky-header,
+// .mat-header-row {
+//   position: sticky !important;
+//   top: 0;
+//   background: var(--content-bg);
+//   z-index: 10;
+//   font-weight: 700;
+//   padding: 8px;
+//   background-color: #FFFFFF !important;
+//   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+// }
+
+// .sticky-header-row {
+//   position: sticky !important;
+//   top: 0;
+//   background: var(--content-bg);
+//   z-index: 10;
+//   background-color: #FFFFFF !important;
+//   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+// }
+
+// .mat-header-row th {
+//   border-bottom: 2px solid #D4AF37; /* Gold border */
+// }
+
+// th.mat-header-cell,
+// td.mat-cell {
+//   padding: 8px;
+//   border-bottom: 1px solid #D4AF37; /* Gold border */
+// }
+
+// th.mat-header-cell {
+//   text-align: left;
+//   color: #1A3C6D; /* Deep navy blue */
+// }
+
+// .no-results {
+//   font-family: "Roboto", sans-serif;
+//   font-size: 16px;
+//   color: #666;
+//   text-align: center;
+//   padding: 20px;
+//   background: var(--content-bg);
+// }
+
+// .no-data-message {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 20px;
+//   color: #666;
+//   font-style: italic;
+//   min-height: 200px;
+//   background: var(--content-bg);
+// }
+
+// .no-data-message mat-icon {
+//   font-size: 48px;
+//   color: #1A3C6D; /* Deep navy blue icon */
+//   margin-bottom: 10px;
+// }
+
+// ::ng-deep [mat-align-tabs=center] > .mat-mdc-tab-header .mat-mdc-tab-labels {
+//   justify-content: space-evenly;
+//   margin-left: -58px;
+// }
+
+// ::ng-deep .mat-mdc-tab-labels {
+//   margin-bottom: 13px;
+// }
+
+// :host ::ng-deep {
+//   .plaintiff {
+//     color: #1A3C6D !important; /* Deep navy blue for plaintiff */
+//   }
+//   .defendant {
+//     color: #D32F2F !important; /* Red for defendant */
+//   }
+// }
+
+// .carde {
+//   transition: transform 0.3s ease;
+//   line-height: 20px;
+//   font-size: 14px;
+//   font-weight: 700;
+//   color: #333333;
+// }
+
+// .carde:hover {
+//   transform: translateY(-5px);
+// }
+
+// .active-title {
+//   color: #D4AF37 !important; /* Gold when panel is expanded */
+// }
+
+// /* Alternating row colors */
+// .even-row {
+//   background-color: #E6F0FA; /* Light blue */
+// }
+
+// .odd-row {
+//   background-color: #FFFFFF; /* White */
+// }
+
+// tr.mat-row:hover {
+//   background-color: #D9E8FF; /* Slightly darker blue on hover */
+//   transition: background-color 0.2s ease;
+// }
+
+// ::ng-deep mat-expansion-panel {
+//   box-shadow: none !important;
+//   // border: none !important;
+//   border-bottom: 1px solid black !important;
+// }
+
+// ::ng-deep mat-expansion-panel:not(:last-of-type) {
+//   margin-bottom: 0px !important;
+//   border-bottom: none !important;
+// }
+
+// /* Remove the thin line below the header */
+// ::ng-deep mat-expansion-panel-header {
+//   border-bottom: none !important;
+//   box-shadow: none !important;
+// }
+
+// /* Also remove any default elevation */
+// ::ng-deep .mat-expansion-panel {
+//   box-shadow: none !important;
+// }
+
+
+
+
+
+// @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+
+
+
+:root {
+  --primary-color: #A100FF; /* Accenture primary purple */
+  --accent-color: #FFFFFF; /* White for accents */
+  --text-color: #000000; /* Black for text in light mode */
+  --background: linear-gradient(135deg, #FFFFFF, #E5CCFF); /* White to light Accenture purple */
+  --content-bg: #FFFFFF; /* White content background */
+}
+
+/* your-component.component.scss */
+:host {
+  font-family: 'Tenorite', sans-serif;
+}
+
+
+.dark-mode {
+  background: linear-gradient(135deg, #000000, #4B0082); /* Black to dark purple for dark mode */
+  color: #FFFFFF; /* White text */
+}
+
+/* Smooth theme transitions */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Tenorite, sans-serif; /* Tenorite font */
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #000000, #4B0082); /* Dark mode gradient */
+  color: #FFFFFF;
+  --background: linear-gradient(135deg, #000000, #4B0082);
+  --content-bg: #4B0082; /* Dark purple content background */
+  --text-color: #FFFFFF;
+}
+
+body, html {
+  background: var(--background);
+}
+
+mat-sidenav-content {
+  background: var(--content-bg);
+}
+
+body.light-mode {
+  background: linear-gradient(135deg, #FFFFFF, #E5CCFF); /* Light mode gradient */
+  color: #000000;
+}
+
+/* Drawer container */
+.drawer-container {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 100%;
+  background: var(--content-bg);
+}
+
+/* Sidenav styling */
+mat-sidenav {
+  width: 20%;
+  height: 98vh;
+  background: var(--content-bg);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .mat-drawer-inner-container {
+  width: 100% !important;
+  height: 78% !important;
+  background: var(--content-bg);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+::ng-deep .mat-drawer-side {
+  box-shadow: none;
+  border-right-style: none !important;
+  border-right-color: var(--accent-color);
+  background: var(--content-bg);
+}
+
+/* Expansion panel */
+mat-expansion-panel {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--content-bg);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+mat-expansion-panel section,
+mat-expansion-panel mat-form-field {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--content-bg);
+}
+
+/* Scrollable radio group */
+.scrollable-radio-group {
+  max-height: 200px;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: var(--content-bg);
+}
+
+.scrollable-radio-group::-webkit-scrollbar {
+  display: none;
+}
+
+/* Year filter buttons */
+.year-filter-buttons {
+  display: flex;
+  margin: 0;
+}
+
+.year-filter-buttons button {
+  padding: 10px 18px;
+  background-color: white;
+  border: 1px solid #6600FF;
+  color: #6600FF;
+  border-radius: 8px;
+  font-family: Tenorite, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(161, 0, 255, 0.15);
+  white-space: nowrap;
+}
+
+/* Hover & Active states */
+.year-filter-buttons button:hover {
+  background-color: #6600FF;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.year-filter-buttons button:active {
+  background-color: #6600FF;
+  transform: scale(0.97);
+}
+
+.year-filter-buttons button.active {
+  background-color: #6600FF;
+  color: white;
+  border-color: #6600FF;
+}
+
+/* ✅ Responsive font & padding adjustments */
+@media (min-width: 1200px) {
+  .year-filter-buttons button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .year-filter-buttons button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+
+/* Sticky filter row */
+.sticky-filter-row {
+  // position: sticky;
+  // top: 70px;
+  // z-index: 999;
+  background: var(--content-bg);
+  // padding: 8px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-left: 55%;
+  margin-top: -8vh;
+}
+
+/* Sidenav content */
+mat-sidenav-content {
+  height: auto;
+  background: var(--content-bg);
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+/* Table styling */
+mat-table {
+  display: block;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0 10px;
+  width: 100%;
+  scrollbar-width: none;
+  background: var(--content-bg);
+}
+
+mat-table::-webkit-scrollbar {
+  display: none;
+}
+
+/* Sticky header row */
+mat-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--content-bg);
+}
+
+/* Header cells */
+mat-header-cell {
+  font-family: Tenorite, sans-serif; /* Tenorite font */
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  background: var(--content-bg);
+  z-index: 10;
+  padding: 10px 16px;
+  color: #A100FF; /* Accenture purple */
+  border-bottom: 1px solid #A100FF;
+}
+
+/* Table rows and cells */
+mat-row {
+  display: table-row;
+  background: var(--content-bg);
+}
+
+mat-cell {
+  display: table-cell;
+  font-family: Tenorite, sans-serif; /* Tenorite font */
+  font-weight: 500;
+  padding: 10px 16px;
+  color: #000000;
+  background: var(--content-bg);
+  border-bottom: 1px solid #A100FF; /* Accenture purple */
+}
+
+/* Alternating row colors */
+mat-row:nth-child(even) {
+  background: #E5CCFF; /* Light Accenture purple */
+}
+
+body.dark-mode mat-row:nth-child(even) {
+  background: #4B0082; /* Dark purple */
+}
+
+/* Row hover effect */
+.mat-row:hover {
+  background-color: #D4A5FF; /* Lighter Accenture purple */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Case Date column */
+.mat-column-caseComplaintDate {
+  font-weight: 500;
+  color: #000000;
+}
+
+/* No-wrap class */
+.no-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 10%;
+  font-size: 12px;
+  font-family: 'Tenorite','sans-serif';
+  text-align: center;
+  // border-bottom: 2px solid #999;
+}
+
+// .win-prediction-cell {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 8px 0;
+//   height: 100%;
+//   text-align: center;
+// }
+
+
+.wrap-text2 {
+  text-align: center;
+  width: 100px;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+  // padding: 8px 12px;
+  box-sizing: border-box;
+  font-family: 'Tenorite','sans-serif';
+  font-size: 12px;
+  // border-bottom: 2px solid #999;
+}
+
+.wrap-text2 ::ng-deep .highlighted {
+  background-color: #D4A5FF; /* Lighter Accenture purple */
+  font-weight: 500;
+  color: #000000;
+  // border-bottom: 2px solid #999;
+}
+
+mat-cell.wrap-text2 {
+  display: table-cell;
+  vertical-align: top;
+}
+
+/* Custom tab labels */
+.custom-tab-label {
+  font-family: 'Tenorite', sans-serif; /* Tenorite font */
+  font-weight: bolder;
+  cursor: pointer;
+  color: #6600FF; /* Dark Black */ 
+  transition: color 0.3s, transform 0.2s;
+
+  &:hover {
+    color: #6600FF; /* Accenture  purple */
+    transform: scale(1.05);
+  }
+}
+
+/* Filter section */
+.filter-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: var(--content-bg);
+  border-bottom: 1px solid #A100FF; /* Accenture purple */
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  background: var(--content-bg);
+}
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  font-size: 14px;
+  color: #A100FF; /* Accenture purple */
+  background: var(--content-bg);
+}
+
+/* Mat-option */
+mat-option {
+  border-bottom: 1px solid #A100FF; /* Accenture purple */
+  background: var(--content-bg);
+}
+
+table.mat-table {
+  width: 100%;
+  position: relative;
+  border-collapse: collapse;
+  overflow-x: auto;
+  display: block;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: auto;
+  background: var(--content-bg);
+}
+
+.table-scroll-container {
+  width: 100%;
+  display: block;
+  background: var(--content-bg);
+}
+
+.table-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #A100FF; /* Accenture purple */
+  border-radius: 10px;
+}
+
+.sticky-header,
+.mat-header-row {
+  position: sticky !important;
+  top: 0;
+  background: var(--content-bg);
+  z-index: 10;
+  font-weight: bolder;
+  font-family: 'Tenorite','sans-serif';
+  font-size: 14px;
+  padding: 8px;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.sticky-header-row {
+  position: sticky !important;
+  top: 0;
+  background: var(--content-bg);
+  z-index: 10;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-family: 'Tenorite',sans-serif;
+}
+
+.mat-header-row th {
+  border-bottom: 2px solid #6600FF; /* Accenture purple */
+}
+
+th.mat-header-cell,
+td.mat-cell {
+  padding: 8px;
+  border-bottom: 1px solid #6600FF; /* Accenture purple */
+}
+
+th.mat-header-cell {
+  text-align: left;
+  color: #6600FF; /* Accenture purple */
+}
+
+.no-results {
+  font-family: 'Tenorite', sans-serif; /* Tenorite font */
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+  background: var(--content-bg);
+}
+
+.no-data-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+  min-height: 200px;
+  background: var(--content-bg);
+}
+
+.no-data-message mat-icon {
+  font-size: 48px;
+  color: #6600FF; /* Accenture purple */
+  margin-bottom: 10px;
+}
+
+::ng-deep [mat-align-tabs=center] > .mat-mdc-tab-header .mat-mdc-tab-labels {
+  justify-content: space-evenly;
+  margin-left: -58px;
+  
+}
+
+::ng-deep .mat-mdc-tab-labels {
+  margin-bottom: 5px;
+}
+
+:host ::ng-deep {
+  .plaintiff {
+    color: #6600FF !important; /* Accenture purple */
+  }
+  .defendant {
+    // color: #6600FF !important; /* Red for defendant */
+  }
+}
+
+.carde {
+  transition: transform 0.3s ease;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000000;
+  font-family: 'Tenorite', sans-serif; /* Tenorite font */
+  // align-items: center;
+  // text-align: center;
+}
+
+.carde:hover {
+  transform: translateY(-5px);
+}
+
+.active-title {
+  color: #6600FF !important; /* Accenture purple */
+}
+
+/* Alternating row colors */
+.even-row {
+  background-color: #E5CCFF; /* Light Accenture purple */
+}
+
+.odd-row {
+  background-color: #FFFFFF;
+}
+
+tr.mat-row:hover {
+  background-color: #D4A5FF; /* Lighter Accenture purple */
+  transition: background-color 0.2s ease;
+}
+
+::ng-deep mat-expansion-panel {
+  box-shadow: none !important;
+  border-bottom: 1px solid black !important;
+}
+
+::ng-deep mat-expansion-panel:not(:last-of-type) {
+  margin-bottom: 0px !important;
+  border-bottom: 1px solid black !important;
+}
+
+/* Remove thin line below header */
+::ng-deep mat-expansion-panel-header {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove default elevation */
+::ng-deep .mat-expansion-panel {
+  box-shadow: none !important;
+}
+
+.panel-wrapper {
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: black;
+  // border-color: black !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: black;
+  // border-color: black !important;
+}
+
+::ng-deep .mat-mdc-tab-list {
+  margin-left: 3rem !important;
+}
+
+
+:host ::ng-deep .mat-mdc-text-field-wrapper {
+  width: 20%;
+  // z-index: 0;
+  // border: 1px solid Black; /* Accenture purple */
+  // margin-left: 2rem;
+  width: 104%;
+  z-index: 900;
+  // top: 10px;
+  height: 49px;
+  // border-block-color: Black; /* Accenture purple */
+  // margin-top: 7.5rem;
+}
+// 
+th, td {
+  border: 1px solid black; /* Accenture purple */
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  font-family: Tenorite, sans-serif; /* Tenorite font */
+}
+
+
+/* Set specific width for Sr. No. column */
+.col-sno {
+  width: 60px !important;
+  max-width: 60px !important;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Set specific width for Status column */
+.col-status {
+  width: 70px !important;
+  max-width: 70px !important;
+  min-width: 50px;
+  text-align: center;
+}
+
+
+
+/* Remove left border for Sr. No. column */
+::ng-deep .mat-column-srNo {
+  border-left: none !important;
+}
+
+/* Remove right border for Similar Cases column */
+::ng-deep .mat-column-relatedCases {
+  border-right: none !important;
+}
+
+/* Also remove bottom border for last row (optional) */
+::ng-deep table.mat-table tr:last-child td {
+  border-bottom: 1px solid black !important;
+}
+
+
+
+.quick-search-wrapper {
+  // position: relative;
+  margin-top: 17vh;
+  // z-index: 900;
+}
+
+/* Input Styling */
+// .responsive-search-input {
+//   width: 290px;
+//   padding: 8px 35px 8px 10px;
+//   font-size: 16px;
+//   border: 1px solid black;
+//   border-radius: 4px;
+//   margin-left: 26vw;
+// }
+
+.responsive-search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 12px ;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 0 auto; /* Centered by default */
+  display: block;
+}
+
+/* Optional: Make sure parent container is flex or block */
+@media (min-width: 768px) {
+  .responsive-search-input {
+      max-width: 350px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-search-input{
+      max-width: 300px;
+  }
+}
+
+
+/* Button Styling */
+.clear-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 📱 Responsive: On small screens, full width */
+@media (max-width: 600px) {
+  .responsive-search-input {
+    width: 100%;
+  }
+}
+
+
+
+
+.filter-toolbar {
+  padding: 10px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0px;
+}
+
+/* Search input */
+.quick-search-wrapper {
+  flex: 1 1 auto;
+}
+
+// .responsive-search {
+//   width: 100%;
+//   max-width: 280px;
+//   padding: 8px 35px 8px 10px;
+//   font-size: 14px;
+//   border: 1px solid black;
+//   border-radius: 4px;
+//   display: block;
+// }
+
+/* Button section */
+.year-filters {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 9%;
+}
+
+.year-filter-buttons {
+  display: flex;
+  margin: 0;
+}
+
+
+
+
+.filter-section {
+  width: 100%;
+  padding: 8px;
+
+  .filter-title {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Tenorite', sans-serif;
+    color: #d9006c;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .filter-search {
+    width: 100%;
+    margin-bottom: 12px;
+
+    input {
+      font-family: 'Tenorite', sans-serif;
+    }
+  }
+
+  .filter-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    mat-checkbox {
+      font-size: 12px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      white-space: normal;
+      font-family: 'Tenorite', sans-serif;
+      overflow: hidden;
+    }
+  }
+}
+
+::ng-deep .mdc-data-table__row:last-child .mat-mdc-cell {
+  border-bottom: 1px solid black;
+}
+
+
+.header-color{
+  background-color: grey;
+}
+
+
+.brown-header {                                                                    
+  background-color:rgb(45, 39, 39) !important;
+  color: white; /* optional, for better contrast */
+}
+                                                                                                                        
+
+
+.scrollable-checkbox-list {
+  max-height: 180px; /* Approx height for 5 checkboxes */
+  overflow-y: auto;
+  padding-right: 8px; /* For scrollbar spacing */
+}
+
+
+
+.scroll-section {
+  max-height: 180px;        /* roughly 5 items visible */
+  overflow-y: auto;
+  padding-right: 6px;       /* to avoid scrollbar overlap */
+  margin-top: 8px;
+}
+
+/* Chip styling fix: prevent chip label overflow */
+::ng-deep .mat-mdc-chip-action-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* Ensure chip list grows with multiple items */
+::ng-deep .mat-chip-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: none;
+  overflow: hidden;
+  gap: 6px;
+}
+
+html {
+  --mdc-circular-progress-active-indicator-color: #28a745; /* Green */
+}
+
+
+
+// .example-section
+.example-section::-webkit-scrollbar {
+  width: 6px;
+}
+.example-section::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+
+.example-section {
+  max-height: 120px; /* Reduced from 180px to 120px */
+  overflow-y: auto; /* Ensure vertical scrolling */
+  padding-right: 6px; /* Avoid scrollbar overlap */
+  background: var(--content-bg); /* Match theme */
+}
+
+/* Customize scrollbar */
+.example-section::-webkit-scrollbar {
+  width: 6px; /* Slim scrollbar */
+}
+
+.example-section::-webkit-scrollbar-thumb {
+  background-color: grey; /* Match your theme */
+  border-radius: 3px;
+}
+
+.example-section::-webkit-scrollbar-track {
+  background: var(--content-bg); /* Match background */
+}
+
+
+
+
+
+::ng-deep .mat-mdc-chip-listbox {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+::ng-deep .mat-mdc-standard-chip {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+
+
+.chip-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 80px;
+  overflow-y: auto;
+  margin-top: 6px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+
+.chip-wrapper mat-chip {
+  display: flex;
+  align-items: center;
+  max-width: 200px; /* or 100%, whatever fits */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 24px; // Give space for cross icon
+  position: relative;
+}
+
+
+
+.chip-wrapper mat-icon[matChipRemove] {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;  // Optional for contrast
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+mdc-data-table__row:last-child .mat-mdc-cell {
+  border-bottom: 1px solid black;
+}
+
+
+
+::ng-deep .mat-table .last-row {
+  border-bottom: 1px solid black;
+}
+
+.chip-wrapper {
+  margin-top: 10px;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+
+mat-chip {
+  display: flex;
+  align-items: center;
+  margin: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  background-color: #e0e0e0;
+}
+
+.chip-text {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  padding-right: 6px;
+}
+
+
+
+
+::ng-deep .mat-mdc-standard-chip {
+  display: flex;
+  align-items: center;
+  max-width: 240px;  /* Set a max width */
+  overflow: hidden;
+  padding-right: 32px; /* Space for X button */
+  border-radius: 20px;
+  background-color: #e0e0e0;
+}
+
+::ng-deep .mat-mdc-chip-action-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+::ng-deep .mat-chip-remove {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+/* Target the Cause of Action panel and its chip wrapper */
+#causeofactionPanel .panel-wrapper .chip-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 80px;
+  overflow-y: auto;
+  margin-top: 6px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden !important;
+}
+
+/* Forcefully style the chips in Cause of Action */
+#causeofactionPanel .panel-wrapper .chip-wrapper ::ng-deep .mat-mdc-standard-chip {
+  display: flex;
+  align-items: center;
+  max-width: 200px !important; /* Enforce max width */
+  overflow: hidden !important; /* Force hidden overflow */
+  text-overflow: ellipsis !important; /* Ensure ellipsis */
+  white-space: nowrap !important; /* Prevent wrapping */
+  padding: 4px 24px 4px 8px !important; /* Space for remove icon */
+  background-color: #e0e0e0;
+  font-family: 'Tenorite', sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* Target the chip label text */
+#causeofactionPanel .panel-wrapper .chip-wrapper ::ng-deep .mat-mdc-standard-chip .mat-mdc-chip-action-label {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  font-family: 'Tenorite', sans-serif !important;
+}
+
+/* Position the remove icon */
+#causeofactionPanel .panel-wrapper .chip-wrapper ::ng-deep .mat-mdc-standard-chip mat-icon[matChipRemove] {
+  position: absolute !important;
+  right: 4px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: white !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+}
+
+
+
+
+
+
+
+
+::ng-deep .mat-mdc-standard-chip .mat-mdc-chip-action-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px; // Limit width for better control
+  margin-left:26%;
+}
+
+.responsive-search-input {
+  width: 100%;
+  padding: 8px 35px 8px 10px; // Increased right padding for button
+  height: 45px;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Tenorite', sans-serif; // Match your theme
+}
+
+.clear-btn2 {
+  position: absolute;
+  right: 10px; // Position inside input
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  z-index: 2; // Ensure it stays above input
+}
+
+/* Ensure input container is the positioning context */
+.quick-search-wrapper {
+  position: relative;
+  margin-top: 17vh; // Keep your existing margin
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .responsive-search-input {
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-search-input {
+    max-width: 389px;
+  }
+}
+
+@media (max-width: 600px) {
+  .responsive-search-input {
+    width: 100%;
+    max-width: 100%;
+  }
+  .input-container {
+    max-width: 100%;
+  }
+}
+
+
+
+
+mat-form-field {
+  width: 100%; // Ensure the form field takes full width
+  .mat-chip-list-wrapper {
+    overflow: hidden; // Prevent chips from overflowing
+    max-width: 100%; // Limit the chip list width
+  }
+  input {
+    width: 100%; // Ensure input takes full available width
+    overflow: hidden; // Prevent text from spilling out
+    text-overflow: ellipsis; // Show ellipsis if text overflows
+    white-space: nowrap; // Prevent text from wrapping
+    box-sizing: border-box; // Include padding and border in width calculation
+    padding-right: 30px; // Add space for the clear button
+  }
+  .mat-form-field-suffix {
+    position: absolute; // Position the clear button absolutely
+    right: 0; // Align to the right
+    top: 50%; // Center vertically
+    transform: translateY(-50%); // Adjust for centering
+    display: flex; // Ensure proper alignment
+    align-items: center; // Center items vertically
+    padding: 0 8px; // Add padding for better spacing
+  }
+  .mat-form-field-infix {
+    width: 100%; // Ensure the infix (input container) takes full width
+    display: flex; // Use flex to manage layout
+    align-items: center; // Align items vertically
+  }
+}

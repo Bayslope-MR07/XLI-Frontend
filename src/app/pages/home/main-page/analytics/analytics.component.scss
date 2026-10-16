@@ -1,0 +1,158 @@
+.custom-grid-list {
+  background-color: lightblue; /* Color of the space between tiles */
+}
+
+mat-grid-tile {
+  // margin: 10px; /* Adjust the margin as needed */
+  background-color: white; /* Color of the tiles */
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+.chart-select{
+  width: 100%;
+  margin: 10px;
+  align-items: end;
+}
+.chart-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns per row */
+  gap: 20px; /* Optional: Adjust space between grid items */
+  margin: 10px;
+  padding: 20px;
+}
+
+
+.chart-item {
+  padding: 20px;
+  margin: 10px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.chart-item1 {
+  width: 94%;
+  padding: 20px;
+  margin: 10px;
+  height: 443px;
+  // display: flex;
+  // flex-direction: column;
+  align-items: center;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Remove right border from even items */
+
+// .chart-item:nth-child(3n) {
+//   border-left: none;
+// }
+
+// .chart-item:nth-child(even) {
+//     border-left: none;
+// }
+
+/* Remove bottom border from items in the last row */
+
+/* Optional: Adjust for the first item in each row */
+
+.scrollable-list {
+  max-height: auto;
+  max-width: 300px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+
+  // Default scrollbar styles
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #d6e0f5 #f0f0f0; /* Light thumb and track */
+
+  &::-webkit-scrollbar {
+    width: 5px; /* Thin scrollbar */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #d6e0f5; /* Light thumb color */
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Light track color */
+  }
+
+  // Hover effect on the list
+  &:hover {
+    scrollbar-color: #2074f3 #f0f0f0; /* Darker thumb and same track */
+
+    &::-webkit-scrollbar-thumb {
+      background: #2074f3; /* Darker thumb on hover */
+    }
+  }
+}
+
+strong {
+  margin-bottom: 10px;
+  color: #6600FF;
+  font-size: 20px;
+}
+
+.full-text {
+  display: block;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: clip;
+  // margin-bottom: 4px;
+}
+
+::ng-deep .custom-dropdown-panel {
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #2074f3 #f0f0f0;
+
+  /* For Webkit browsers like Chrome and Edge */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #2074f3;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+}
+/* Ensure menu width is sufficient */
+.mat-menu-panel {
+  min-width: 200px;
+}
+
+/* Adjust checkbox alignment */
+.mat-checkbox {
+  width: 100%;
+  margin: 4px 0;
+}
+
+/* Hover effect for checkboxes */
+.mat-checkbox:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.no-border-icon {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
